@@ -40,6 +40,7 @@ npm run dev
 
 ```
 cd backend
+cp .env.example .env
 npm install
 
 # データベースの作成
