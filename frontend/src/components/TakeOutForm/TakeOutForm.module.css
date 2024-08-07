@@ -1,0 +1,13 @@
+.takeOutForm {
+  margin: 0 auto;
+  width: 800px;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.takeOutForm h1 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}

@@ -1,0 +1,49 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// 商品カテゴリマスタ
+model ProductCategory {
+  id       Int      @id @default(autoincrement())
+  name     String
+  products Product[]
+}
+
+// 商品マスタ
+model Product {
+  id               Int    @id @default(autoincrement())
+  name             String
+  price            Int
+  priceWithTax     Int
+  classification   String
+  categoryId       Int
+  category         ProductCategory @relation(fields: [categoryId], references: [id])
+  orders           Order[]
+}
+
+// 顧客マスタ
+model Customer {
+  id        Int         @id @default(autoincrement())
+  name      String
+  phoneNumber String
+  orders    Order[]     
+}
+
+// 注文テーブル
+model Order {
+  id           Int       @id @default(autoincrement())
+  quantity     Int
+  productId    Int
+  customerId   Int
+  product      Product   @relation(fields: [productId], references: [id])
+  customer     Customer  @relation(fields: [customerId], references: [id])
+}
+
