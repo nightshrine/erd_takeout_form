@@ -37,14 +37,17 @@ npm run dev
 ```
 
 ### バックエンド
-
+- prismaが動かない場合、先頭に npx コマンドを付けて実行する
 ```
 cd backend
 cp .env.example .env
 npm install
 
+
 # データベースの作成
 prisma migrate dev --name init
+※ prismaが動かない場合、先頭に npx コマンドを付けて実行する
+
 # データベースの初期データ投入
 prisma db seed
 
