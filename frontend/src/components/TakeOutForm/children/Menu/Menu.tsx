@@ -1,5 +1,5 @@
 import MenuMaster from "../../../../master/MenuMaster";
-import ProductCategory from "./ProductCategory/ProductCategory";
+import ProductCategory from "./productCategory/ProductCategory";
 import styles from "./Menu.module.css";
 
 interface IProps {

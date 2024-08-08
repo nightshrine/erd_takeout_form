@@ -29,7 +29,7 @@ model Product {
   orders           Order[]
 }
 
-// 顧客マスタ
+// 顧客テーブル
 model Customer {
   id        Int         @id @default(autoincrement())
   name      String
@@ -37,7 +37,7 @@ model Customer {
   orders    Order[]     
 }
 
-// 注文マスタ
+// 注文テーブル
 model Order {
   id           Int       @id @default(autoincrement())
   quantity     Int

@@ -2,7 +2,6 @@ import { ORDER_API } from "../constants/ApiConstants";
 import { IOrderRequest } from "../definitions/IOrderRequest";
 import { ApiService } from "./ApiService";
 
-
 /**
  * 注文サービス
  */
@@ -12,8 +11,6 @@ export class PostOrderService {
    */
   public static async order(orderRequest: IOrderRequest): Promise<void> {
     // 注文APIを呼び出す
-    await ApiService.callPostApi<IOrderRequest>(ORDER_API, 
-      orderRequest
-    );
+    await ApiService.callPostApi<IOrderRequest>(ORDER_API, orderRequest);
   }
 }

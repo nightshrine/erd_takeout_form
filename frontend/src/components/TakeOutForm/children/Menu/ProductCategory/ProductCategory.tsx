@@ -1,6 +1,6 @@
-import { IProductCategoryMaster } from "../../../../../definitions/MenuMaster/IProductCategoryMaster";
+import { IProductCategoryMaster } from "../../../../../definitions/menuMaster/IProductCategoryMaster";
 import MenuMaster from "../../../../../master/MenuMaster";
-import Product from "./Product/Product";
+import Product from "./product/Product";
 import styles from "./ProductCategory.module.css";
 
 interface IProps {

@@ -1,5 +1,5 @@
 import { NEW_PRODUCT } from "../../../../../../constants/ProductConstants";
-import { IProductMaster } from "../../../../../../definitions/MenuMaster/IProductMaster";
+import { IProductMaster } from "../../../../../../definitions/menuMaster/IProductMaster";
 import styles from "./Product.module.css";
 
 interface IProps {
