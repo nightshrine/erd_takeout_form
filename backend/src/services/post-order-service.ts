@@ -1,5 +1,6 @@
+import { IOrderRequest } from "../definitions/order-request-type";
+
 import { PrismaClient } from "@prisma/client";
-import { IOrderRequest } from "../../../frontend/src/definitions/IOrderRequest";
 const prisma = new PrismaClient();
 
 const insertUser = async (

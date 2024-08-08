@@ -1,5 +1,5 @@
-/** マスタリクエスト */
-export interface IMasterRequest {
+/** 注文リクエスト */
+export interface IOrderRequest {
   /** 顧客の名前 */
   customerName: string;
   /** 顧客の電話番号 */
