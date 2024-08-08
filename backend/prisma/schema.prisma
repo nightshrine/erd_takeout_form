@@ -37,7 +37,7 @@ model Customer {
   orders    Order[]     
 }
 
-// 注文テーブル
+// 注文マスタ
 model Order {
   id           Int       @id @default(autoincrement())
   quantity     Int
