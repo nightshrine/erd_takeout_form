@@ -1,5 +1,5 @@
-import { IProduct } from "./master/IProduct";
-import { IProductCategory } from "./master/IProductCategory";
+import { IProduct } from "./master/product-type";
+import { IProductCategory } from "./master/product-category-type";
 
 /** マスタレスポンス */
 export interface IMasterResponse {

@@ -1,9 +1,10 @@
 import { serve } from "@hono/node-server";
 import { Hono } from "hono";
-import { getInitMaster } from "./services/GetInitMasterService";
+import { getInitMaster } from "./services/get-Init-master-service";
 import { corsMiddleware } from "./middleware/cors";
 import { IOrderRequest } from "../../frontend/src/definitions/IOrderRequest";
-import { postOrderService } from "./services/PostOrderService";
+import { postOrderService } from "./services/post-order-service";
+import { getTransaction } from "./services/get-transaction-service";
 
 const app = new Hono();
 
@@ -17,11 +18,19 @@ app.get("/", (c) => {
 // CORSの設定 FRONT_BASE_URLを設定する
 app.use("*", corsMiddleware(frontBaseUrl));
 
+// マスタの初期値を取得
 app.get("/api/init/master", async (c) => {
   const initMaster = await getInitMaster();
   return c.json(initMaster);
 });
 
+// トランザクションデータを取得
+app.get("/api/get/transaction", async (c) => {
+  const transaction = await getTransaction();
+  return c.json(transaction);
+});
+
+// 注文を受け付ける
 app.post("/api/order", async (c) => {
   const orderRequest: IOrderRequest = await c.req.json();
   postOrderService(orderRequest);

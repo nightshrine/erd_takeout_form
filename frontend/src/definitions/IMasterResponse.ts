@@ -1,5 +1,5 @@
-import { IProductCategoryMaster } from "./MenuMaster/IProductCategoryMaster";
-import { IProductMaster } from "./MenuMaster/IProductMaster";
+import { IProductCategoryMaster } from "./menuMaster/IProductCategoryMaster";
+import { IProductMaster } from "./menuMaster/IProductMaster";
 
 export interface IMasterResponse {
   /** 商品マスタ */

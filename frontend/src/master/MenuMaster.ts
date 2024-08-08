@@ -1,5 +1,5 @@
-import { IProductCategoryMaster } from "../definitions/MenuMaster/IProductCategoryMaster";
-import { IProductMaster } from "../definitions/MenuMaster/IProductMaster";
+import { IProductCategoryMaster } from "../definitions/menuMaster/IProductCategoryMaster";
+import { IProductMaster } from "../definitions/menuMaster/IProductMaster";
 
 /**
  * メニューマスタ

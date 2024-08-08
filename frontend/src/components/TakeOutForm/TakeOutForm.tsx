@@ -1,9 +1,10 @@
 import { useState } from "react";
-import Menu from "./children/Menu/Menu";
-import UserForm from "./children/UserForm/UserForm";
+import Menu from "./children/menu/Menu";
+import UserForm from "./children/userForm/UserForm";
 import styles from "./TakeOutForm.module.css";
 import { IOrderRequest } from "../../definitions/IOrderRequest";
 import { PostOrderService } from "../../services/PostOrderService";
+import { useNavigate } from "react-router-dom";
 
 const TakeOutForm = () => {
   // 注文辞書
@@ -11,6 +12,8 @@ const TakeOutForm = () => {
   // 注文者情報
   const [name, setName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
+
+  const navigate = useNavigate();
 
   const submitOrder = () => {
     // 注文数が0の商品を削除
@@ -36,11 +39,23 @@ const TakeOutForm = () => {
       orderDict: orderDict,
     };
     PostOrderService.order(orderRequest);
+    // 注文辞書を初期化
+    setOrderDict({});
+  };
+
+  /**
+   * 注文テーブルを確認するページへ遷移
+   */
+  const goToOrderTable = () => {
+    navigate("/order");
   };
 
   return (
     <div className={styles.takeOutForm}>
       <h1>お持ち帰りご注文フォーム</h1>
+      <button className={styles.orderButton} onClick={goToOrderTable}>
+        注文テーブルを確認
+      </button>
       <Menu orderDict={orderDict} setOrderDict={setOrderDict} />
       <UserForm
         name={name}

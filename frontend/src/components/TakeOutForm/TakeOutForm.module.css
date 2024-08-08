@@ -4,6 +4,18 @@
   flex-direction: column;
   align-items: center;
   margin-top: 20px;
+  position: relative;
+}
+
+.takeOutForm .orderButton {
+  position: absolute;
+  right: 0;
+  top: 5px;
+  padding: 0.5rem 1rem;
+  background-color: #45da2a;
+  color: white;
+  border: none;
+  cursor: pointer;
 }
 
 .takeOutForm h1 {

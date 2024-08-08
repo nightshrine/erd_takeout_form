@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { InitMasterService } from "./services/InitMasterService";
-import TakeOutFrom from "./components/TakeOutForm/TakeOutForm";
+import TakeOutFrom from "./components/takeOutForm/TakeOutForm";
 
 function App() {
   const [isInitialized, setIsInitialized] = useState(false);

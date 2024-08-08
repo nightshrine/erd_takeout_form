@@ -1,7 +1,7 @@
 import { PrismaClient } from "@prisma/client";
-import { IProduct } from "../../prisma/definitions/master/IProduct";
-import { IProductCategory } from "../../prisma/definitions/master/IProductCategory";
-import { IMasterResponse } from "../../prisma/definitions/IMasterResponse";
+import { IProduct } from "../definitions/master/product-type";
+import { IProductCategory } from "../definitions/master/product-category-type";
+import { IMasterResponse } from "../definitions/master-response-type";
 const prisma = new PrismaClient();
 
 const getProduct = async (): Promise<IProduct[]> => {
