@@ -1,5 +1,5 @@
 // TODO: envに置きたい
-export const BASE_API_URL = "http://localhost:3000";
+export const BASE_API_URL = "https://erd_takeout_form_backend.workers.dev";
 // マスタ初期化API
 export const INIT_MASTER_API = "/api/init/master";
 // トランザクションデータ取得API
