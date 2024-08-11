@@ -2,24 +2,35 @@ import { PrismaClient } from "@prisma/client";
 import { ICustomer } from "../definitions/transaction/customer-type";
 import { IOrder } from "../definitions/transaction/order-type";
 import { ITransactionResponse } from "../definitions/transaction-response-type";
-const prisma = new PrismaClient();
+import { Bindings } from "../definitions/db/d1";
+import db from "../middleware/db";
 
-const getCustomer = async (): Promise<ICustomer[]> => {
-  const customer = await prisma.customer.findMany();
-  return customer;
-};
+class GetTransactionService {
+  private prisma: PrismaClient;
 
-const getOrder = async (): Promise<IOrder[]> => {
-  const order = await prisma.order.findMany();
-  return order;
-};
+  public constructor(env: Bindings) {
+    this.prisma = db(env);
+  }
 
-export const getTransaction = async (): Promise<ITransactionResponse> => {
-  const customer = await getCustomer();
-  const order = await getOrder();
+  private async getCustomer(): Promise<ICustomer[]> {
+    const customer = await this.prisma.customer.findMany();
+    return customer;
+  }
 
-  return {
-    customer,
-    order,
-  };
-};
+  private async getOrder(): Promise<IOrder[]> {
+    const order = await this.prisma.order.findMany();
+    return order;
+  }
+
+  public async getTransaction(): Promise<ITransactionResponse> {
+    const customer = await this.getCustomer();
+    const order = await this.getOrder();
+
+    return {
+      customer,
+      order,
+    };
+  }
+}
+
+export default GetTransactionService;
