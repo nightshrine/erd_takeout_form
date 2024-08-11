@@ -14,11 +14,7 @@ type Bindings = {
 const app = new Hono<{ Bindings: Bindings }>();
 
 // CORSの設定 FRONT_BASE_URLを設定する
-app.all("*", (c, next) => {
-  const frontBaseUrl = c.env.FRONT_BASE_URL || "http://localhost:3000";
-  corsMiddleware(frontBaseUrl);
-  return next();
-});
+app.use("*", corsMiddleware("*"));
 
 app.get("/", (c) => {
   return c.text("Hello Hono!");
